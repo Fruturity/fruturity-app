@@ -4,15 +4,17 @@ const port = 3000;
 
 const historyRoute = require('./routes/History')
 
+const {
+    getFruitsHistory
+} = require('./controllers/Fruits.controller')
+
 app.use('/history', historyRoute);
 
 app.get('/', (req, res) => {
     res.send('Home page!');
 })
 
-app.get('/history', (req, res) => {
-    res.send('Get history data');
-})
+app.get('/history', getFruitsHistory)
 
 app.get('/bookmarks', (req,res) => {
     res.send('Get bookmark data');
