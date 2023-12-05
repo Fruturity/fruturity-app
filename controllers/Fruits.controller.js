@@ -22,25 +22,6 @@ const storage = new Storage({
 const bucketName = process.env.BUCKET_NAME;
 const bucket = storage.bucket(bucketName);
 
-const getBookmarkedFruits = async (req,res) => {
-  try {
-    const fruits = await db.collection("fruits").where("bookmark", "==", false).get();
-
-    if(fruits.size > 0){
-      let data = [];
-      fruits.forEach((doc) => {
-        data.push(doc.data());
-      })
-      res.send(data);
-    } else {
-      res.send("There is no data");
-    }
-
-  } catch (error) {
-    res.send(error);
-  }
-}
-
 const getData = async (req, res) => {
   try {
     const snapShot = await db.collection("fruits").get();
@@ -68,7 +49,6 @@ const getDataById = async (req, res) => {
 const deleteDataById = async (req, res) => {
   try {
     const snapShot = await db.collection("fruits").doc(req.params.id).get();
-    console.log(snapShot.data().image);
     const image = bucket.file(`img/${snapShot.data().image}`);
     // console.log(image)
     const exists = await image.exists();
@@ -87,6 +67,7 @@ const deleteDataById = async (req, res) => {
 const addData = async (req, res) => {
   try {
     const { id, ripeness, category, date, bookmark } = req.body;
+    console.log(req.body);
     const uniqueId = uuidv4();
     const uniqueImage = uuidv4();
     const getFileExtension = (fileName) => {
@@ -147,27 +128,91 @@ const addData = async (req, res) => {
   }
 };
 
-// const getBookmarkedFruits = async (req, res) => {
-//   try {
-//     console.log("haiii");
-//     const fruits = await db.collection("fruits");
-//     const bookmarked = fruits.where("bookmark", "==", true).get();
-//     if (bookmarked.empty) {
-//       res.send("There is no bookmarked data");
-//     } else {
-//       res.send(bookmarked);
-//     }
-//   } catch (error) {
-//     res.send(error);
-//   }
-// };
+const getBookmarkedFruits = async (req, res) => {
+  try {
+    const fruits = await db
+      .collection("fruits")
+      .where("bookmark", "==", true)
+      .get();
 
+    if (fruits.size > 0) {
+      let data = [];
+      fruits.forEach((doc) => {
+        data.push(doc.data());
+      });
+      res.send(data);
+    } else {
+      res.send("There is no data");
+    }
+  } catch (error) {
+    res.send(error);
+  }
+};
 
+const getBananas = async (req, res) => {
+  try {
+    const bananas = await db
+      .collection("fruits")
+      .where("category", "==", "banana")
+      .get();
+
+    if (bananas.size > 0) {
+      let data = [];
+      bananas.forEach((doc) => {
+        data.push(doc.data());
+      });
+      res.send(data);
+    } else {
+      res.send("There is no banana");
+    }
+  } catch (error) {
+    res.send(error);
+  }
+};
+
+const getMangos = async (req, res) => {
+  try {
+    const mangos = await db
+      .collection("fruits")
+      .where("category", "==", "mango")
+      .get();
+
+    if (mangos.size > 0) {
+      let data = [];
+      mangos.forEach((doc) => {
+        data.push(doc.data());
+      });
+      res.send(data);
+    } else {
+      res.send("There is no mango");
+    }
+  } catch (error) {
+    res.send(error);
+  }
+};
+
+const addNote = async (req, res) => {
+  try {
+    const { note } = req.body;
+    if (note === null) {
+      const snapShot = await db.collection("fruits").doc(req.params.id);
+      const updatedData = await snapShot.update({ note: note });
+      res.send("note saved");
+    } else {
+      res.send("please add some note");
+    }
+  } catch (error) {
+    res.send(error);
+  }
+};
 
 module.exports = {
   getData,
   getDataById,
   deleteDataById,
   addData,
-  getBookmarkedFruits
+  getBookmarkedFruits,
+  getBananas,
+  getMangos,
+  addNote,
 };
