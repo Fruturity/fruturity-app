@@ -16,7 +16,8 @@ app.use('/fruit', fruitRoute);
 
 
 app.get('/', (req, res) => {
-    res.send('Home page!');
+    console.log("APIs ready!")
+    res.send('APIs ready!');
 })
 
 app.get('/bookmarks', (req,res) => {

@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "composed-card-399614",
+  "private_key_id": "677c7abf1804f0552dfcf43a5be448cb82670a6d",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEuwIBADANBgkqhkiG9w0BAQEFAASCBKUwggShAgEAAoIBAQCbrXHzppBQaEkD\n7jkMBQMNHL9EToxN/GvmQD6QofE7QsSNYdlgLZFOqZpwDoZXPT7IWVHtVzxoV8c+\n+XxeCCYieETaOsiTb8k5rsB2UW2Y8KGqUrJaOQP4QElLlb0U3PlwHFFtEPMugn9c\ncGizGDNTlXuStp7LX0lS5v0OQlBujQVXhA6U62eKnMqFFcp5/863kN84OOruWdpR\n7OehU5vCYvFX9OykdCAGfZG3BfWzrsHZ+IzxcAhIjLU329/E9UgGqAn7AUFVoDjc\nc9wWUCj0P8qazUG04jQcpciJ8WxBCqmPO64gpFsNRWrnIX99RktHv/y50ZalG961\nYmdcoOIXAgMBAAECgf8QxC+mMrfqg1DHiU5SasoN6Jz6B3unM6z9jRJUgWWeRW4K\nXlrmbpQ3wAx0TkC8AAEwt0lktCUWhYI5IYD6VnigYlOaUd7/Jp08UAOPA8hcQrLd\ngJzZY9zlBFCXZa2ubPmU9OWG/ifE/yRvPfUtVLcN28JzU8oPiup/TGFicOaB3Mxf\nVJG42TEfB7m1Zndvb7VzdY6IAIZAJ12KwIa9EcvKcv/7hhOXEBI5zItXaX6mFHGQ\nbABXbJu9/61K1uPEeD5EBXShVXoROVpk0nj2Oiga2/3rqukZot3IfbbDCRAjUz7i\nIY5aYgNNbWGf6lNe0nsjjoabKXkExabmJyZuWSECgYEA0dR5KkjVJH9Fww34kwuH\n+sE9OurxucI86s5w90QR3Z9JrPYUHaa5YOB3noWIlPwXb1pAYOZOq10NfVQ+TC4H\n9paQFigeTUCJxSp0pBGzBpS/H8t/pdFz03i4f+0hLugBI1rLWtB9zj9K7VPyWDTZ\nhFdlJvzAx5EYh8Yt7WQXKFECgYEAve6dVzWjqXYLhT+QUNWBGftmI7opfml2t/nF\nlZdkklXg2Omd8GvbEq/ZqO+Sy5e6RzawRMopyXfER8Gj2DwLugeArMeTs1eImbr7\nJ3QrSbw0KYmC6FMUfeg8O6cZfg8h0TOYBInA/yVqMXyIfCyGCEuHET35hxmy1Vh6\nUg/EMecCgYAOOnYs49twKiE05NGiRvnliwz33c6eZglzcqQ+YCNF//MjA1zB1fhk\nFVSHL07fq2h7aIdNCtDy1dCAWyIOUGDB29vRZM8JNgMhl4tpRLn7DEMZiNcTC2zr\nPhhktFO3tou9Nf7sHY8qWShfh327dXn6e2KkjicUYUZkjo+2tT7MwQKBgQCEvb6z\nU6a1ae31S45mIEGhUgV5lMMpOTYisGr5+Jvudhy2HNgoTokGj2Y03nMe3UTwPnWF\nLjF0P8MrT1deaeDcPCAfIUDGB7hNkNO1KEiUuPdPzG50RpQ8xtFJ86gqZRMCbeeh\nzFDZQWHtgha1ijyGkZqtXz4EwN4uoy6iKai6IwKBgFVJvwC4Rmpfb/8fuzaBbS4P\nXu4zUChcG47XTHyBJt2ssooqXf93zvzVGNnS/86zTdSne79+uvl5EKmwV7NPRoLt\nNniDHI17lhhsXglGvBRZ72cEKZGtWfE1DM9ZXWaw+KY3FCOdb8GEN/V2IyUw9sYU\nx0YHgoych36NvtP1c70b\n-----END PRIVATE KEY-----\n",
+  "client_email": "fruit-bucket-service@composed-card-399614.iam.gserviceaccount.com",
+  "client_id": "114749913388416138609",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/fruit-bucket-service%40composed-card-399614.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
