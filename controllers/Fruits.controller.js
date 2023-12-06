@@ -58,7 +58,7 @@ const deleteDataById = async (req, res) => {
     }
     await snapShot.ref.delete();
     await image.delete();
-    res.status(200).send("Data deleted successfully");
+    res.status(200).send({ message: "Fruit deleted successfully" });
   } catch (error) {
     res.status(500).send("Error deleting data");
   }
@@ -116,7 +116,7 @@ const addData = async (req, res) => {
           .set(newData);
 
         bucketFileStream.on("finish", () => {
-          res.status(200).send("Success!");
+          res.status(200).send({message: "Data added successfully"});
         });
         bucketFileStream.end(req.file.buffer);
       }
@@ -194,10 +194,10 @@ const getMangos = async (req, res) => {
 const addNote = async (req, res) => {
   try {
     const { note } = req.body;
-    if (note === null) {
+    if (note != null) {
       const snapShot = await db.collection("fruits").doc(req.params.id);
       const updatedData = await snapShot.update({ note: note });
-      res.send("note saved");
+      res.send({ message: "Note saved successfully"});
     } else {
       res.send("please add some note");
     }
