@@ -206,6 +206,17 @@ const addNote = async (req, res) => {
   }
 };
 
+const makeBookmark = async (req, res) => {
+  try {
+    const snapShot = db.collection("fruits").doc(req.params.id);
+    const makeBookmark = await snapShot.update({ bookmark: true });
+    const response = await snapShot.get();
+    res.send({ message: "Fruit bookmarked", data: response.data() });
+  } catch (error){
+    res.send(error);
+  }
+}
+
 module.exports = {
   getData,
   getDataById,
@@ -215,4 +226,5 @@ module.exports = {
   getBananas,
   getMangos,
   addNote,
+  makeBookmark,
 };

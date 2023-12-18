@@ -1,6 +1,6 @@
 const express = require('express');
 const Multer = require("multer");
-const { getData, getDataById, deleteDataById, addData, getBookmarkedFruits, getBananas, getMangos, addNote } = require('../controllers/Fruits.controller');
+const { getData, getDataById, deleteDataById, addData, getBookmarkedFruits, getBananas, getMangos, addNote, makeBookmark } = require('../controllers/Fruits.controller');
 
 const router = express.Router();
 
@@ -20,6 +20,7 @@ router.post('/:id/add/note', addNote);
 router.get('/:id', getDataById);
 
 router.post('/add', multer.single("image"), addData);
+router.post('/:id/bookmark', makeBookmark);
 
 router.delete('/delete/:id', deleteDataById);
 
