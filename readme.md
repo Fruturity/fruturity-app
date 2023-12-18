@@ -28,7 +28,7 @@ This API is built with Express.js, a framework for Node.js
                 "_nanoseconds": 0
             },
             "image": "download.jpeg",
-            "bookmark": true,
+            "bookmark": false,
             "ripeness": "very ripe",
             "imageUrl": "https://storage.googleapis.com/fruit-image-bucket/img/9712e4cb-19ca-4f36-ba1e-f7b637bf918f",
             "id": "2ca78478-7417-407b-b08f-36688e2e12c8",
@@ -84,7 +84,6 @@ This API is built with Express.js, a framework for Node.js
     - `ripeness` (string, required): ripeness level of fruit.
     - `category` (string, required): fruit category.
     - `date` (string, required): input date (format: YYYY-MM-DD).
-    - `bookmark` (boolean, required): sign the fruit is bookmarked or not.
     - `file` (file, required): image that will be uploaded.
 - **Request**:
     - Content-Type: application/json
@@ -94,7 +93,6 @@ This API is built with Express.js, a framework for Node.js
         "ripeness": "ripe",
         "category": "mango",
         "date": "2023-09-09",
-        "bookmark": true,
         "file": [image file]
     }
     ```
@@ -259,6 +257,33 @@ This API is built with Express.js, a framework for Node.js
             "category": "mango"
         }
     ]
+    ```
+
+### 9. Make Fruit Bookmarked
+- **Endpoint**: `/fruit/:id/bookmark`
+- **Method**: `POST`
+- **Description**: Make a fruit is bookmarked,
+- **Request Parameters**:
+    - `id`: The unique string identifier of the fruit to retrieve.
+- **Response**:
+    - Status code: `200 OK`
+    - Body:
+    ```json
+    {
+        "message": "Fruit bookmarked",
+        "data": {
+            "date": {
+                "_seconds": 1631145600,
+                "_nanoseconds": 0
+            },
+            "image": "36d429da-ca5f-4bfb-90d3-3e3f6d286cfd.jpg",
+            "ripeness": "very ripe",
+            "imageUrl": "https://storage.googleapis.com/fruit-image-bucket/img/36d429da-ca5f-4bfb-90d3-3e3f6d286cfd.jpg",
+            "id": "048d15a9-6040-4321-bdda-b4bfac3678e4",
+            "category": "banana",
+            "bookmark": true
+        }
+    }
     ```
 
 
