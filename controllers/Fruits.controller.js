@@ -66,7 +66,7 @@ const deleteDataById = async (req, res) => {
 
 const addData = async (req, res) => {
   try {
-    const { id, ripeness, category, date, bookmark } = req.body;
+    const { id, ripeness, category, date } = req.body;
     console.log(req.body);
     const uniqueId = uuidv4();
     const uniqueImage = uuidv4();
@@ -107,7 +107,7 @@ const addData = async (req, res) => {
           date: new Date(date),
           image: uniqueImage + "." + getFileExtension(req.file.originalname),
           imageUrl: publicUrl,
-          bookmark: Boolean(bookmark),
+          bookmark: false,
         };
 
         const response = await db
