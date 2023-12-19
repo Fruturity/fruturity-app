@@ -83,7 +83,6 @@ This API is built with Express.js, a framework for Node.js
 - **Body Parameters**:
     - `ripeness` (string, required): ripeness level of fruit.
     - `category` (string, required): fruit category.
-    - `date` (string, required): input date (format: YYYY-MM-DD).
     - `file` (file, required): image that will be uploaded.
 - **Request**:
     - Content-Type: application/json
@@ -92,7 +91,6 @@ This API is built with Express.js, a framework for Node.js
     {
         "ripeness": "ripe",
         "category": "mango",
-        "date": "2023-09-09",
         "file": [image file]
     }
     ```
