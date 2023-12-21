@@ -41,7 +41,12 @@ const getDataById = async (req, res) => {
   try {
     const snapShot = db.collection("fruits").doc(req.params.id);
     const response = await snapShot.get();
-    res.send(response.data());
+    console.log(response.data())
+    if(response.data()){
+      res.send(response.data());
+    } else {
+      res.send({ message: "No data found!"})
+    }
   } catch (error) {
     res.send(error);
   }
@@ -51,9 +56,7 @@ const deleteDataById = async (req, res) => {
   try {
     const snapShot = await db.collection("fruits").doc(req.params.id).get();
     const image = bucket.file(`img/${snapShot.data().image}`);
-    // console.log(image)
     const exists = await image.exists();
-
     if (!exists[0]) {
       return res.status(404).send("File not found");
     }
@@ -61,7 +64,7 @@ const deleteDataById = async (req, res) => {
     await image.delete();
     res.status(200).send({ message: "Fruit deleted successfully" });
   } catch (error) {
-    res.status(500).send("Error deleting data");
+    res.status(500).send({ message: "Error deleting data"});
   }
 };
 
@@ -164,7 +167,7 @@ const getBananas = async (req, res) => {
       });
       res.send(data);
     } else {
-      res.send("There is no banana");
+      res.send({ message: "There is no banana"});
     }
   } catch (error) {
     res.send(error);
@@ -185,7 +188,7 @@ const getMangos = async (req, res) => {
       });
       res.send(data);
     } else {
-      res.send("There is no mango");
+      res.send({ message: "There is no mango" });
     }
   } catch (error) {
     res.send(error);
@@ -200,10 +203,10 @@ const addNote = async (req, res) => {
       const updatedData = await snapShot.update({ note: note });
       res.send({ message: "Note saved successfully"});
     } else {
-      res.send("please add some note");
+      res.send({ message: "Please add some note!" });
     }
   } catch (error) {
-    res.send(error);
+    res.send({ message: "There is no fruit" });
   }
 };
 
@@ -216,7 +219,7 @@ const makeBookmark = async (req, res) => {
     const makeBookmark = await snapShot.update({ bookmark: !bookmarkStatus });
     const response = await snapShot.get();
     if(bookmarkStatus){
-      res.send({ messagge: "Fruit unbookmarked", data: response.data() })
+      res.send({ message: "Fruit unbookmarked", data: response.data() })
     } else {
       res.send({ message: "Fruit bookmarked", data: response.data() });
     }
