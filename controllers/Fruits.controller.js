@@ -5,6 +5,7 @@ const { v4: uuidv4 } = require("uuid");
 
 const admin = require("firebase-admin");
 const serviceAccount = require("../firestore-key.json");
+const { json } = require("body-parser");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
@@ -209,9 +210,16 @@ const addNote = async (req, res) => {
 const makeBookmark = async (req, res) => {
   try {
     const snapShot = db.collection("fruits").doc(req.params.id);
-    const makeBookmark = await snapShot.update({ bookmark: true });
+    const getSnapShot = await snapShot.get();
+    const jsonData = getSnapShot.data();
+    const bookmarkStatus = jsonData.bookmark;
+    const makeBookmark = await snapShot.update({ bookmark: !bookmarkStatus });
     const response = await snapShot.get();
-    res.send({ message: "Fruit bookmarked", data: response.data() });
+    if(bookmarkStatus){
+      res.send({ messagge: "Fruit unbookmarked", data: response.data() })
+    } else {
+      res.send({ message: "Fruit bookmarked", data: response.data() });
+    }
   } catch (error){
     res.send(error);
   }
