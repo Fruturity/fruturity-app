@@ -260,7 +260,7 @@ This API is built with Express.js, a framework for Node.js
 ### 9. Make Fruit Bookmarked
 - **Endpoint**: `/fruit/:id/bookmark`
 - **Method**: `POST`
-- **Description**: Make a fruit is bookmarked,
+- **Description**: Make a fruit is bookmarked/unbookmarked,
 - **Request Parameters**:
     - `id`: The unique string identifier of the fruit to retrieve.
 - **Response**:
