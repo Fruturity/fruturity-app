@@ -16,11 +16,11 @@ router.get('/bookmark', getBookmarkedFruits);
 router.get('/bananas', getBananas);
 router.get('/mangos', getMangos);
 
-router.post('/:id/add/note', addNote);
 router.get('/:id', getDataById);
 
 router.post('/add', multer.single("image"), addData);
 router.post('/:id/bookmark', makeBookmark);
+router.post('/:id/add/note', multer.single(), addNote);
 
 router.delete('/delete/:id', deleteDataById);
 

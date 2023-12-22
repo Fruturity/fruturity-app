@@ -198,6 +198,7 @@ const getMangos = async (req, res) => {
 const addNote = async (req, res) => {
   try {
     const { note } = req.body;
+    console.log(req)
     if (note != null) {
       const snapShot = await db.collection("fruits").doc(req.params.id);
       const updatedData = await snapShot.update({ note: note });
